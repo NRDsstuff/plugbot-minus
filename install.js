@@ -1,11 +1,11 @@
-module.exports = (rl, user) =>{
+module.exports = async (rl, user) =>{
 
     const fs = require('fs')
     const NZTK = require('../../../other/NZTK')
 
     // set up a readline for init config
 
-    rl.close()
+    await rl.close()
 
     const PBRLa = require('readline') // the a stands for a 
     const PBRL = PBRLa.createInterface({
@@ -14,7 +14,7 @@ module.exports = (rl, user) =>{
         output: process.stdout
     })
 
-    PBRL.question(`please input your bot's token (it will be set for the current user, ${user}.)`, (answer) =>{
+    await PBRL.question(`please input your bot's token (it will be set for the current user, ${user}.)`, (answer) =>{
 
         fs.appendFile(`./SHELL/temp/NZPM/plugbot/configs/plugbot/tokens.json`, `{"${user}": "${answer}"}`, (err) =>{
 
@@ -35,7 +35,7 @@ module.exports = (rl, user) =>{
 
         if(err) console.log("there was an error while installing the plugbot toolkit.")
     })
-    NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js", " ", true)
+    NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js")
 
     fs.appendFile('./SHELL/configs/NZPM/installed.txt', "plugbot", (err) =>{
 
