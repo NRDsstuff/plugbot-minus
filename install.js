@@ -14,9 +14,9 @@ module.exports = (rl, user) =>{
         output: process.stdout
     })
 
-    PBRL.question(`please input your bot's token (it will be set for the current user, ${user.name}.)`, (answer) =>{
+    PBRL.question(`please input your bot's token (it will be set for the current user, ${user}.)`, (answer) =>{
 
-        fs.appendFile(`./SHELL/temp/NZPM/plugbot/configs/plugbot/tokens.json`, `{"${user.name}": "${answer}"}`, (err) =>{
+        fs.appendFile(`./SHELL/temp/NZPM/plugbot/configs/plugbot/tokens.json`, `{"${user}": "${answer}"}`, (err) =>{
 
             if (err) console.log("there was an error while setting your token. you will have to add it manually in shell/configs/plugbot/tokens")
         })
