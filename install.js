@@ -21,7 +21,7 @@ module.exports = (rl, user) =>{
             if (err) console.log("there was an error while setting your token. you will have to add it manually in shell/configs/plugbot/tokens")
         })
 
-        NZTK.moveFile('./programs/plugbot.app.js', '../../../programs/plugbot.app.js', "there was an error while moving the app file.", true)
+        NZTK.moveFile('./SHELL/temp/NZPM/plugbot/programs/plugbot.app.js', './SHELL/programs/plugbot.app.js', "there was an error while moving the app file.", true)
         fs.rename('./SHELL/temp/NZPM/plugbot/other/plugbot', './SHELL/other/plugbot', (err) =>{
 
             if(err) console.log("there was an error while moving the commands")
@@ -40,6 +40,8 @@ module.exports = (rl, user) =>{
 
             if(err) console.log("there was an error adding PB to the installed list")
         })
+
+        NZTK.removedir('./SHELL/temp/NZPM/plugbot')
         return NZTK.log("finished installing plugbot", "NZTK", "install")
     })
 }
