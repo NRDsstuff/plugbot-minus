@@ -45,16 +45,5 @@ module.exports = (rl, user) =>{
         NZTK.log("finished installing plugbot", "NZTK", "install")
 
         PBRL.close()
-
-        const rl2 = require('readline')
-            const newLien = rl2.createInterface({
-
-                input: process.stdin,
-                output: process.stdout
-            })
-
-            console.log("thank you for using plugbot.")
-            NZTK.silentlog("plugbot shutdown", "plugbot", "session")
-            programs.get(globConfg.shell.name).run(users, user, newLien, "umm")
     })
 }
