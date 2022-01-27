@@ -35,7 +35,7 @@ module.exports = (rl, user) =>{
 
         if(err) console.log("there was an error while installing the plugbot toolkit.")
     })
-    NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js")
+    NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js", " ", true)
 
     fs.appendFile('./SHELL/configs/NZPM/installed.txt', "plugbot", (err) =>{
 
