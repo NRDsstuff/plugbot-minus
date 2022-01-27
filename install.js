@@ -22,22 +22,22 @@ module.exports = async (rl, user) =>{
         })
     })
 
-    NZTK.moveFile('./programs/plugbot.app.js', '../../../programs/plugbot.app.js', "there was an error while moving the app file.", true)
-    fs.rename('./SHELL/temp/NZPM/plugbot', './SHELL/other/plugbot', (err) =>{
+    await NZTK.moveFile('./programs/plugbot.app.js', '../../../programs/plugbot.app.js', "there was an error while moving the app file.", true)
+    await fs.rename('./SHELL/temp/NZPM/plugbot', './SHELL/other/plugbot', (err) =>{
 
         if(err) console.log("there was an error while moving the commands")
     })
-    fs.rename("./SHELL/temp/NZPM/plugbot/configs/plugbot", "./SHELL/configs/plugbot", (err) =>{
+    await fs.rename("./SHELL/temp/NZPM/plugbot/configs/plugbot", "./SHELL/configs/plugbot", (err) =>{
 
         if(err) console.log("there was an error while moving config and token files")
     })
-    fs.rename("./SHELL/temp/NZPM/plugbot/other/PBTKModules", "./SHELL/other/PBTKModules", (err) =>{
+    await fs.rename("./SHELL/temp/NZPM/plugbot/other/PBTKModules", "./SHELL/other/PBTKModules", (err) =>{
 
         if(err) console.log("there was an error while installing the plugbot toolkit.")
     })
-    NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js")
+    await NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js", " ", true)
 
-    fs.appendFile('./SHELL/configs/NZPM/installed.txt', "plugbot", (err) =>{
+    await fs.appendFile('./SHELL/configs/NZPM/installed.txt', "plugbot", (err) =>{
 
         if(err) console.log("there was an error adding PB to the installed list")
     })
