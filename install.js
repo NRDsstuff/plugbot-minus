@@ -39,9 +39,9 @@ module.exports = (rl, user) =>{
         fs.appendFile('./SHELL/configs/NZPM/installed.txt', "plugbot", (err) =>{
 
             if(err) console.log("there was an error adding PB to the installed list")
+            
+            NZTK.removedir('./SHELL/temp/NZPM/plugbot')
+            return NZTK.log("finished installing plugbot", "NZTK", "install")
         })
-
-        NZTK.removedir('./SHELL/temp/NZPM/plugbot')
-        return NZTK.log("finished installing plugbot", "NZTK", "install")
     })
 }
