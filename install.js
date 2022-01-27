@@ -1,6 +1,9 @@
+const { ShellString } = require('shelljs')
+
 module.exports = (rl, user) =>{
 
     const fs = require('fs')
+    const shell = require('shelljs')
     const NZTK = require('../../../other/NZTK')
 
     // set up a readline for init config
@@ -14,6 +17,8 @@ module.exports = (rl, user) =>{
         output: process.stdout
     })
 
+    shell.exec("npm i discord.js db discord.js-reaction-menu one-liner-joke superagent ffmpeg")
+    
     PBRL.question(`please input your bot's token (it will be set for the current user, ${user}.)`, (answer) =>{
 
         fs.appendFile(`./SHELL/temp/NZPM/plugbot/configs/plugbot/tokens.json`, `{"${user}": "${answer}"}`, (err) =>{
@@ -39,7 +44,7 @@ module.exports = (rl, user) =>{
         fs.appendFile('./SHELL/configs/NZPM/installed.txt', "plugbot", (err) =>{
 
             if(err) console.log("there was an error adding PB to the installed list")
-            
+
             NZTK.removedir('./SHELL/temp/NZPM/plugbot')
             return NZTK.log("finished installing plugbot", "NZTK", "install")
         })
