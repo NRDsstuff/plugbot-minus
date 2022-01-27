@@ -22,7 +22,7 @@ module.exports = (rl, user) =>{
         })
 
         NZTK.moveFile('./programs/plugbot.app.js', '../../../programs/plugbot.app.js', "there was an error while moving the app file.", true)
-        fs.rename('./SHELL/temp/NZPM/plugbot', './SHELL/other/plugbot', (err) =>{
+        fs.rename('./SHELL/temp/NZPM/plugbot/other/plugbot', './SHELL/other/plugbot', (err) =>{
 
             if(err) console.log("there was an error while moving the commands")
         })
