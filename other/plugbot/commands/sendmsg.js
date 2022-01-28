@@ -18,8 +18,7 @@ module.exports = {
         
             case "name":
                 
-                const channel = PBTK.findChannelName(args[3])
-                PBTK.sendmsg(args[2], channel.id, sendmsg)
+                PBTK.sendMsgName(args[2], args[3], sendmsg)
             break;
         
             default:

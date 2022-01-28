@@ -5,6 +5,12 @@ const createChannel = require('./PBTKModules/createchannel')
 const deleteChannelName = require('./PBTKModules/deletechannelname')
 const deleteChannelID = require('./PBTKModules/deletechannelID')
 const findChannelName = require('./PBTKModules/findchannelname')
+const replyQuickEmbed = require('./PBTKModules/replyquickembed')
+const repeatAfterUser = require('./PBTKModules/repeatafteruser')
+const reply = require('./PBTKModules/reply')
+const addRoleByName = require('./PBTKModules/giverolename')
+const quickDelete = require('./PBTKModules/quickdelete')
+const sendMsgName = require('./PBTKModules/sendmsgname')
 
 module.exports = class PBTK{
 
@@ -33,6 +39,30 @@ module.exports = class PBTK{
     deleteChannelName(guildID, channelName){
 
         deleteChannelName(this.client, guildID, channelName, this.plugin, NZTK)
+    }
+    replyQuickEmbed(message, title, desc, color){
+
+        replyQuickEmbed(message, title, desc, color, this.plugin)
+    }
+    repeatAfterUser(message, prefix, commandName){
+
+        repeatAfterUser(message, prefix, commandName, this.plugin)
+    }
+    reply(client, message, content){
+
+        reply(client, message, content, this.plugin, NZTK)
+    }
+    giveRoleName(guild, member, roleName){
+
+        addRoleByName(guild, member, roleName, this.plugin, NZTK, this.client)
+    }
+    delete(message){
+
+        quickDelete(message, this.plugin)
+    }
+    sendMsgName(guildID, channelName, content){
+
+        sendMsgName(this.client, guildID, channelName, content, this.plugin, NZTK)
     }
     
 }

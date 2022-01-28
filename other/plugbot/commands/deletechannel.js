@@ -11,12 +11,12 @@ module.exports = {
                         
             case "ID":
                 
-                PBTK.deleteChannelByID(args[2], args[3])
+                PBTK.deleteChannelID(args[2], args[3])
             break;
         
             case "name":
         
-                PBTK.deleteChannelByName(args[2], args[3])
+                PBTK.deleteChannelName(args[2], args[3])
             break;
         
             default: 
