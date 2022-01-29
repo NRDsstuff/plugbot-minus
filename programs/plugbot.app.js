@@ -46,10 +46,10 @@ module.exports = {
                 PBCMD.set(cmd.name, cmd)
             }
 
-        let pgins = fs.readdirSync(`./SHELL/other/plugbot/plugins`).filter(file => file.endsWith(`plugin.js`));
+        let pgins = fs.readdirSync(`./SHELL/other/plugbot/plugins`).filter(file => file.endsWith(`.js`));
             for(const file of pgins){
                 
-                const plugin = require(`./${file}`);
+                const plugin = require(`../other/plugbot/plugins/${file}`);
                     
                 PBPlugins.set(plugin.name, plugin)
                 plugin.run(client, PBPlugins, PBCMD)
