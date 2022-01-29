@@ -1,0 +1,9 @@
+{
+    "presence": {
+
+        "name": "gaming | -help",
+        "type": "LISTENING",
+        "status": "idle"
+    },
+    "consoleReady": "bot is ready"
+}
