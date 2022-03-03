@@ -8,7 +8,7 @@ module.exports = {
         const { Permissions } = require('discord.js')
 
         if (!message.member.permissions.has([Permissions.FLAGS.MANAGE_GUILD, Permissions.FLAGS.MANAGE_CHANNELS])) {
-            return keineRechteEmbed(message);
+            return message.channel.send("incorrect permissions");
             }
             message.channel.permissionOverwrites.edit(message.guild.roles.everyone, { SEND_MESSAGES: false });
             const lockedChannelEmbed = new Discord.MessageEmbed()
