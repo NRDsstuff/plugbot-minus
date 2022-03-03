@@ -18,7 +18,7 @@ module.exports = (rl, user) =>{
         output: process.stdout
     })
 
-    shell.exec("npm i discord.js db discord.js-reaction-menu one-liner-joke superagent ffmpeg")
+    shell.exec("npm i discord.js db discord.js-reaction-menu one-liner-joke superagent ffmpeg @discordjs/rest @discordjs/builders discord-api-types")
 
     PBRL.question(`please input your bot's token (it will be set for the current user, ${user}.)`, (answer) =>{
 
