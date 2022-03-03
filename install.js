@@ -46,7 +46,7 @@ module.exports = (rl, user) =>{
         })
         NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js", " ", true)
         
-        installed.packages.push("plugbot")
+        if(!installed.packages.indexOf("plugbot")) installed.packages.push("plugbot")
 
         fs.writeFile("./SHELL/configs/NZPM/toupdate.json", JSON.stringify(installed), (err =>{
 
