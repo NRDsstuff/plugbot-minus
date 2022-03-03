@@ -47,8 +47,6 @@ module.exports = (rl, user) =>{
         NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js", " ", true)
         
         installed.packages.push("plugbot")
-        
-        const fs = require('fs')
 
         fs.writeFile("./SHELL/options/NZPM/toupdate.json", installed, (err =>{
 
