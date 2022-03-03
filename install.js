@@ -5,6 +5,7 @@ module.exports = (rl, user) =>{
     const fs = require('fs')
     const shell = require('shelljs')
     const NZTK = require('../../../other/NZTK')
+    let installed = require('../../../configs/NZPM/toupdate.json')
 
     // set up a readline for init config
 
@@ -44,13 +45,10 @@ module.exports = (rl, user) =>{
             if(err) console.log("there was an error while making the plugins folder")
         })
         NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js", " ", true)
+        
+        installed.packages.push("plugbot")
 
-        fs.appendFile('./SHELL/configs/NZPM/installed.txt', "plugbot", (err) =>{
-
-            if(err) console.log("there was an error adding PB to the installed list")
-
-            NZTK.removedir('./SHELL/temp/NZPM/plugbot')
-            return NZTK.log("finished installing plugbot", "NZTK", "install")
-        })
+        NZTK.removedir('./SHELL/temp/NZPM/plugbot')
+        return NZTK.log("finished installing plugbot", "NZTK", "install")
     })
 }
