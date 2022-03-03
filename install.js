@@ -48,7 +48,7 @@ module.exports = (rl, user) =>{
         
         installed.packages.push("plugbot")
 
-        fs.writeFile("./SHELL/options/NZPM/toupdate.json", installed, (err =>{
+        fs.writeFile("./SHELL/configs/NZPM/toupdate.json", JSON.stringify(installed), (err =>{
 
             if(err) console.log("there was an error while installing this package")
         }))
