@@ -52,7 +52,7 @@ module.exports = {
                 const plugin = require(`../other/plugbot/plugins/${file}`);
                     
                 PBPlugins.set(plugin.name, plugin)
-                plugin.run(client, PBPlugins, PBCMD)
+                plugin.run(client, PBPlugins, PBCMD, user)
             }
 
         rl.setPrompt(NZTK.setupps1(PBConf.shell.PS1, user.name, users))
