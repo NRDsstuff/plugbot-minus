@@ -9,7 +9,7 @@ module.exports = {
     run: async(bot, interaction, args, options) =>{
 
         const Discord = require('discord.js')
-        const config = require('../../../../../configs/plugbot/plugins/OPBSCP/misc/allemojis.json')
+        const config = require('../../../../../configs/plugbot/plugins/OPBCP/misc/allemojis.json')
         const PBTKc = require('../../../../PBTK')
         const PBTK = new PBTKc("OPBSCP", bot)
 

@@ -10,7 +10,7 @@ module.exports = {
 
         const Discord = require('discord.js')
         const os = require('os')
-        const config = require('../../../../../configs/plugbot/plugins/OPBSCP/misc/hostinfo.json')
+        const config = require('../../../../../configs/plugbot/plugins/OPBCP/misc/hostinfo.json')
 
         var totalmem = os.totalmem()
         var freemem = os.freemem()

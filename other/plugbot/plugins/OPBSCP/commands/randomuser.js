@@ -9,7 +9,7 @@ module.exports = {
     run: (client, interaction, args, options) =>{
 
         const Discord = require('discord.js')
-        const config = require('../../../../../configs/plugbot/plugins/OPBSCP/misc/randomuser.json');
+        const config = require('../../../../../configs/plugbot/plugins/OPBCP/misc/randomuser.json');
         const PBTKc = require('../../../../PBTK')
         const PBTK = new PBTKc("OPBSCP", client)  
         

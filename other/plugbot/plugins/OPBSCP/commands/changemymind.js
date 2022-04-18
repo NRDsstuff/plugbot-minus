@@ -24,7 +24,7 @@ module.exports = {
 
     //command-specific variables or whatever
 
-    const config = require('../../../../../configs/plugbot/plugins/OPBSCP/fun/changemymind.json')
+    const config = require('../../../../../configs/plugbot/plugins/OPBCP/fun/changemymind.json')
 
     //your code
 

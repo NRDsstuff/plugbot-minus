@@ -26,7 +26,7 @@ module.exports = {
     const config = require('../../../../../configs/plugbot/plugins/OPBCP/misc/stopwatch.json')
 
     // your code 
-    
+
     const input = args[0].value;
         var remainingTime = input,
           remainingCount = 1,

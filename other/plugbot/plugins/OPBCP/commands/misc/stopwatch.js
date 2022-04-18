@@ -16,6 +16,8 @@ module.exports = {
 
     // your code 
     
+    if(args[0] <= 0 || isNaN(args[0])) return
+
     const input = args[0];
         const input2 = args[1];
         const reply =

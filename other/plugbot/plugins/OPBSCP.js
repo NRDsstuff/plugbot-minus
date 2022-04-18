@@ -43,7 +43,7 @@ module.exports = {
 
                 await rest.put(
 
-                    Routes.applicationGuildCommands(clientId, guildId),
+                    Routes.applicationCommands(clientId),
                     { body: commands }
                 );
 
@@ -56,8 +56,6 @@ module.exports = {
         })();
 
         client.on('interactionCreate', async (interaction) =>{
-
-            console.log("STIMULATION")
 
             if(!interaction.isCommand) return
             let name = interaction.commandName

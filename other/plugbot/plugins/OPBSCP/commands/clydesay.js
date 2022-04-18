@@ -22,7 +22,7 @@ module.exports = {
 
         //command-specific variables or whatever
 
-        const config = require('../../../../../configs/plugbot/plugins/OPBSCP/fun/clydesay.json')
+        const config = require('../../../../../configs/plugbot/plugins/OPBCP/fun/clydesay.json')
 
         //your code
 
