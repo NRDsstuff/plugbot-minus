@@ -1,12 +1,12 @@
 module.exports = {
 
     name: "serverinfo",
-    run: (msg, args, client) =>{
+    run: (msg, args, client, NZTK, user) =>{
 
         const Discord = require('discord.js')
         const config = require('../../../../../../configs/plugbot/plugins/OPBCP/misc/serverinfo.json')
         const PBTKc = require('../../../../../PBTK')
-        const PBTK = new PBTKc("OPBCP", client)
+        const PBTK = new PBTKc("OPBCP", client, user)
 
         if(!msg.guild) return;
 
@@ -35,6 +35,6 @@ module.exports = {
         .addField(config.createdAt, `${server.createdAt}`, false)
         .setTimestamp();
 
-        PBTK.reply(client, msg, { embeds: [embed] })
+        PBTK.reply(msg, { embeds: [embed] })
     }
 }

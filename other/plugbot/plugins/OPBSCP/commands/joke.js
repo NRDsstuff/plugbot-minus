@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
 		.setName('joke')
 		.setDescription('make me say unfunny'),
-    run: (client, interaction, args, options) =>{
+    run: (client, interaction, args, options, user, NZTK) =>{
 
         //bot-wide variables or whatever
 
@@ -16,10 +16,8 @@ module.exports = {
 
         // functions
 
-        const NZTK = require('../../../../NZTK')
-
         interaction.editReply(daJoke)
 
-        NZTK.log(`i said unfunny (${daJoke})`, "OPBSCP", "joke")
+        NZTK.log.success(`i said unfunny (${daJoke})`, 1, "joke")
     }
 }

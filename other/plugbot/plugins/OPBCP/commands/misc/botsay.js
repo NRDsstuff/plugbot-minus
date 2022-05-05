@@ -1,13 +1,13 @@
 module.exports = {
 
     name: "botsay",
-    run: (msg, args, client) =>{
+    run: (msg, args, client, NZTK, user) =>{
 
         const { Permissions } = require('discord.js')
 
         const mainConfig = require('../../../../../../configs/plugbot/mainConf.json')
         const PBTKc = require('../../../../../PBTK')
-        const PBTK = new PBTKc("OPBCP", client)
+        const PBTK = new PBTKc("OPBCP", client, user)
 
         // delete the message
 

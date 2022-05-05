@@ -1,7 +1,10 @@
 module.exports = {
 
     name: "joke",
-    run: (msg) =>{
+    run: (msg, args, client, NZTK, user) =>{
+
+        const PBTKc = require('../../../../../PBTK')
+        const PBTK = new PBTKc("OPBCP", client, user)
 
         //bot-wide variables or whatever
 
@@ -9,15 +12,6 @@ module.exports = {
         const daJoke = joke({ exclude_tags: ["dirty", "marriage", "sex", "death"] })
         .body
 
-        // functions
-
-        const NZTK = require('../../../../../NZTK')
-
-        msg.channel.send(
-            
-            daJoke
-        );
-
-        NZTK.log(`i said unfunny (${daJoke})`, "OPBCP", "joke")
+        PBTK.reply(msg, daJoke)
     }
 }

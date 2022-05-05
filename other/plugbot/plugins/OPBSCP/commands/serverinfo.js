@@ -6,12 +6,12 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("serverinfo")
         .setDescription("info about this server"),
-    run: (client, interaction, args, options) =>{
+    run: (client, interaction, args, options, user, NZTK) =>{
 
         const Discord = require('discord.js')
         const config = require('../../../../../configs/plugbot/plugins/OPBCP/misc/serverinfo.json')
         const PBTKc = require('../../../../PBTK')
-        const PBTK = new PBTKc("OPBCP", client)
+        const PBTK = new PBTKc("OPBCP", client, user)
 
         if(!interaction.guild) return;
 

@@ -10,15 +10,11 @@ module.exports = {
 			option.setName('input')
 				.setDescription('what should clyde say')
 				.setRequired(true)),
-    run: async (client, interaction, args, options) =>{
+    run: async (client, interaction, args, options, user, NZTK) =>{
 
         //bot-wide variables or whatever
 
         const fetch = require("node-fetch");
-
-        // functions
-
-        const NZTK = require('../../../../NZTK')
 
         //command-specific variables or whatever
 
@@ -34,6 +30,6 @@ module.exports = {
         ).then((res) => res.json());
 
         interaction.editReply(data.message)
-        NZTK.log(`sent image, content: ${text} link: ${data.message}`, 'OPBSCP', "clydesay")
+        NZTK.log.success(`sent image, content: ${text} link: ${data.message}`, 1, "clydesay")
     }
 }

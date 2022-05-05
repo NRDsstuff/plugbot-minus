@@ -2,7 +2,10 @@ module.exports = {
     name: "deletechannel",
     desc: "delete a channel",
     usage: "deletechannel [ID/name] [guild id] [channel id/channel name]",
-    run: (client, args) =>{
+    run: (client, args, line, user, PBCMD, PBPlugins, PBRL, programs) =>{
+
+        const NZTKc = require('../../NZTK')
+        const NZTK = new NZTKc("plugbot", user)
 
         const PBTKc = require('../../PBTK')
         const PBTK = new PBTKc("deletechannel", client)
@@ -20,7 +23,7 @@ module.exports = {
             break;
         
             default: 
-                console.log("please chose between id or name")
+                NZTK.log.warn("please chose between id or name", 2, "œœœœ")
             break;
             
         }

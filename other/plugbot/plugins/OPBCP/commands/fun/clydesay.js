@@ -1,7 +1,7 @@
 module.exports = {
 
     name: "clydesay",
-    run: async (msg, args, client) =>{
+    run: async (msg, args, client, NZTK, user) =>{
 
         //bot-wide variables or whatever
 
@@ -9,9 +9,8 @@ module.exports = {
 
         // functions
 
-        const NZTK = require('../../../../../NZTK')
         const PBTKc = require('../../../../../PBTK')
-        const PBTK = new PBTKc("OPBCP", client)
+        const PBTK = new PBTKc("OPBCP", client, user)
 
         //command-specific variables or whatever
 
@@ -29,8 +28,8 @@ module.exports = {
 
         ).then((res) => res.json());
 
-        msg.channel.send(data.message)
+        PBTK.sendmsg(msg.guild.id, msg.channel.id, data.message)
 
-        NZTK.log(`sent image, content: ${text} link: ${data.message}`, 'OPBCP', "clydesay")
+        NZTK.log.success(`sent image, content: ${text} link: ${data.message}`, 'OPBCP', "clydesay")
     }
 }

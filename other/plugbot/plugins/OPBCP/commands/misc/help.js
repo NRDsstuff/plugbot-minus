@@ -1,7 +1,7 @@
 module.exports = {
 
     name: "help",
-    run: (msg) =>{
+    run: (msg, args, client, NZTK, user) =>{
 
         const Discord = require('discord.js');
         const rm = require('discord.js-reaction-menu')

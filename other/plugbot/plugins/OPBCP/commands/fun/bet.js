@@ -1,7 +1,9 @@
 module.exports = {
 
     name: "bet",
-    run: (message) =>{
+    run: (message, args, client, NZTK) =>{
+
+        const PBTKc = require('../../../../../PBTK')
 
         const Discord = require('discord.js')
 

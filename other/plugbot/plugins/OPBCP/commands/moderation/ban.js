@@ -1,7 +1,7 @@
 module.exports = {
 
     name: "ban",
-    run: (message, args) =>{
+    run: (message, args, client, NZTK, user) =>{
         
         //your code
 

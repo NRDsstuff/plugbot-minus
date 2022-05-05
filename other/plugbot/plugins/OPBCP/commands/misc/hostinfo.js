@@ -1,13 +1,13 @@
 module.exports = {
 
     name: "hostinfo",
-    run: (msg, args, client) =>{
+    run: (msg, args, client, NZTK, user) =>{
 
         const Discord = require('discord.js')
         const os = require('os')
         const config = require('../../../../../../configs/plugbot/plugins/OPBCP/misc/hostinfo.json')
         const PBTKc = require('../../../../../PBTK')
-        const PBTK = new PBTKc("OPBCP", client)
+        const PBTK = new PBTKc("OPBCP", client, user)
 
         var totalmem = os.totalmem()
         var freemem = os.freemem()
@@ -31,6 +31,6 @@ module.exports = {
             {name: config.cpuModel, value: `${cpumodel}`, inline: true},
             {name: config.osType, value: `${ostype}`, inline: true})
         
-        PBTK.reply(client, msg, { embeds: [sysinfo] })
+        PBTK.reply(msg, { embeds: [sysinfo] })
     }
 }

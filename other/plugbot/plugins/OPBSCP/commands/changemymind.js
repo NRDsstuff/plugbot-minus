@@ -10,7 +10,7 @@ module.exports = {
 			option.setName('input')
 				.setDescription('the text to put on the thing aaaaaaaaaaaaa')
 				.setRequired(true)),
-  run: async (client, interaction, args, options) =>{
+  run: async (client, interaction, args, options, user, NZTK) =>{
 
     //bot-wide variables or whatever
 
@@ -18,9 +18,8 @@ module.exports = {
 
     // functions
 
-    const NZTK = require('../../../../NZTK')
     const PBTKc = require('../../../../PBTK')
-    const PBTK = new PBTKc("OPBSCP", client)
+    const PBTK = new PBTKc("OPBSCP", client, user)
 
     //command-specific variables or whatever
 

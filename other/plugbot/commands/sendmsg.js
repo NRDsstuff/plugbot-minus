@@ -2,10 +2,13 @@ module.exports = {
     name: "sendmsg",
     desc: "send a message from your terminal of choice!",
     usage: "sendmsg [ID/name] [server id] [channel id/channel name] [message]",
-    run: async (client, args, line) =>{
+    run: async (client, args, line, user, PBCMD, PBPlugins, PBRL, programs) =>{
+
+        const NZTKc = require('../../NZTK')
+        const NZTK = new NZTKc("plugbot", user)
 
         const PBTKc = require('../../PBTK')
-        const PBTK = new PBTKc("sendmsg", client)
+        const PBTK = new PBTKc("sendmsg", client, user)
 
         const sendmsg = line.substring(args[0].length + args[1].length + args[2].length + args[3].length + 3)
 
@@ -23,7 +26,7 @@ module.exports = {
         
             default:
 
-                console.log("please input ID or name first")
+                NZTK.log.warn("please input ID or name first", 2, "æ↓”ńœśę→©ŋńś©ŋ↓")
             break;
             
         }

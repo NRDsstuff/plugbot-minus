@@ -1,7 +1,7 @@
 module.exports = {
   
   name: "changemymind",
-  run: async (message, args, client) =>{
+  run: async (message, args, client, NZTK, user) =>{
 
     //bot-wide variables or whatever
 
@@ -9,9 +9,8 @@ module.exports = {
 
     // functions
 
-    const NZTK = require('../../../../../NZTK')
     const PBTKc = require('../../../../../PBTK')
-    const PBTK = new PBTKc("OPBCP", client)
+    const PBTK = new PBTKc("OPBCP", client, user)
 
     //command-specific variables or whatever
 
@@ -19,9 +18,7 @@ module.exports = {
 
     //your code
 
-    message.delete()
-
-    NZTK.log(`deleted message, content: ${message.content}`, "OPBCP", "changemymind")
+    PBTK.delete(message)
     
     const text = args.join(" ");
 

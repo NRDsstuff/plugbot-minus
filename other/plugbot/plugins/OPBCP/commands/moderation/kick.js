@@ -1,10 +1,9 @@
 module.exports = {
 
     name: "kick",
-    run: (message, args) =>{
+    run: (message, args, client, NZTK, user) =>{
 
         const config = require('../../../../../../configs/plugbot/plugins/OPBCP/mod/kick.json')
-        const NZTK = require('../../../../../NZTK')
         const { Permissions } = require('discord.js')
 
         if (!message.member.permissions.has(Permissions.FLAGS.KICK_MEMBERS)) return message.channel.send(config.invalidPermissions)

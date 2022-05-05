@@ -1,12 +1,12 @@
 module.exports = {
 
     name: "botstats",
-    run: (msg, args, bot) =>{
+    run: (msg, args, bot, NZTK, user) =>{
 
         const Discord = require('discord.js')
         const config = require('../../../../../../configs/plugbot/plugins/OPBCP/misc/botstats.json');
         const PBTKc = require('../../../../../PBTK')
-        const PBTK = new PBTKc("OPBCP", bot)
+        const PBTK = new PBTKc("OPBCP", bot, user)
 
         if(msg.author.bot) return;
 
@@ -18,6 +18,6 @@ module.exports = {
         .addField(config.users, `${bot.users.cache.size}`, true)
         .setTimestamp()
 
-        PBTK.reply(bot, msg, { embeds: [embed] })
+        PBTK.reply(msg, { embeds: [embed] })
     }
 }

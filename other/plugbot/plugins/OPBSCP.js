@@ -5,7 +5,8 @@ module.exports = {
 
         const { REST } = require('@discordjs/rest');
         const { Routes } = require('discord-api-types/v9');
-        const NZTK = require('../../NZTK')
+        const NZTKc = require('../../NZTK')
+        const NZTK = new NZTKc("OPBSCP", user)
         const fs = require('fs');
 
         const config = require('../../../configs/plugbot/mainConf.json')
@@ -27,19 +28,20 @@ module.exports = {
             commandList.set(command.data.name, command)
             commands.push(command.data.toJSON());
 
-            console.log(commandList)
-
-            console.log(command)
+            NZTK.log.success(`registered command ${command.data.name}`, 2, "AAAAAAAAAH")
         }
 
-        const rest = new REST({ version: '9' }).setToken(NZTK.findinjson(tokens, user.name));
+        let token
+
+        NZTK.findInJson(tokens, user.name, (data) =>{token = data})
+
+        const rest = new REST({ version: '9' }).setToken(token);
 
         (async () =>{
 
             try{
 
-                console.log('Started refreshing application (/) commands.');
-                console.log(commands)
+                NZTK.log.normal('Started refreshing application slash commands.', 1, "cmdhandler")
 
                 await rest.put(
 
@@ -47,11 +49,11 @@ module.exports = {
                     { body: commands }
                 );
 
-                console.log('Successfully reloaded application (/) commands.');
+                NZTK.log.success('Successfully reloaded application slash commands.', 2, "Ą");
 
             }catch(error){
 
-                console.error(error);
+                NZTK.log.critError(error);
             }
         })();
 
@@ -61,18 +63,23 @@ module.exports = {
             let name = interaction.commandName
             let options = interaction.options
 
-            console.log(name)
+            NZTK.log.normal(`recieved command ${name}`, 1, "cmdhandler")
 
             let commandMethod = commandList.get(name)
 
-            console.log(commandMethod)
-
-            if(!commandMethod) return
+            if(commandMethod === undefined || !commandMethod){
+                
+                NZTK.critError(`cannot find command ${name}. starting panic`)
+                interaction.reply(`there was a fatal error while trying to load the command ${name}`)
+                return
+            }
 
             const args = options._hoistedOptions
 
             await interaction.deferReply()
-            commandMethod.run(client, interaction, args, options)
+            NZTK.log.normal(`running command ${name}`, 1, "cmdhanlder")
+            commandMethod.run(client, interaction, args, options, user, NZTK)
+            NZTK.log.success(`command ${name} completed successfully`)
         })
     }
 }

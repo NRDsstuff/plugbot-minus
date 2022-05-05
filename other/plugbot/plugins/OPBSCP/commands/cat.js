@@ -6,18 +6,18 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("cat")
         .setDescription("qt image of cat"),
-run: (client, interaction, args, options) =>{
+run: (client, interaction, args, options, user, NZTK) =>{
 
         const fetch = require('superagent')
-        const NZTK = require('../../../../NZTK')
         const Discord = require('discord.js')
 
-        fetch.get("https://some-random-api.ml/img/cat").then(x => {
+        let lincc 
 
-            const catEmbed = new Discord.MessageEmbed()
-            .setColor("BLUE")
-            .setImage(x.body.link);
-            interaction.editReply({ embeds: [catEmbed] });
-        }).then(NZTK.log(`sent an image.`, "OPBCP", "cat"))
+        fetch.get("https://some-random-api.ml/img/cat").then(x => {
+            
+            lincc = x.body.link 
+
+            interaction.editReply(x.body.link);
+        }).then(NZTK.log.success(`sent ${lincc}`, 1, "cat"))
     }
 }

@@ -6,12 +6,12 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("randomuser")
         .setDescription("ping a random user"),
-    run: (client, interaction, args, options) =>{
+    run: (client, interaction, args, options, user) =>{
 
         const Discord = require('discord.js')
         const config = require('../../../../../configs/plugbot/plugins/OPBCP/misc/randomuser.json');
         const PBTKc = require('../../../../PBTK')
-        const PBTK = new PBTKc("OPBSCP", client)  
+        const PBTK = new PBTKc("OPBSCP", client, user)  
         
         let member = interaction.guild.members.cache.random();
 

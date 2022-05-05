@@ -1,9 +1,8 @@
 module.exports = {
 
-    name: "clear",
-    run: (message) =>{
+    name: "nuke",
+    run: (message, args, client, NZTK, user) =>{
 
-        const NZTK = require('../../../../../NZTK')
         const config = require('../../../../../../configs/plugbot/plugins/OPBCP/mod/clear.json')
         const { Permissions } = require('discord.js')
         

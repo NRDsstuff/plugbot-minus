@@ -1,4 +1,4 @@
-module.exports = (client) =>{
+module.exports = (client, NZTK, user) =>{
 
     // load configs
 
@@ -7,9 +7,8 @@ module.exports = (client) =>{
     // load other functions
 
     const fs = require('fs')
-    const NZTK = require('../../../../NZTK')
     const PBTKc = require('../../../../PBTK')
-    const PBTK = new PBTKc("OPBCP")
+    const PBTK = new PBTKc("OPBCP", client, user)
 
     // load commands
 
@@ -36,7 +35,7 @@ module.exports = (client) =>{
             cmdlist.set(cmd.name, cmd)
         }
 
-    NZTK.log("OPBCP is ready.", "OPBCP", "launcher")
+    NZTK.log.success("OPBCP is ready.", 2, "launcher")
     
     client.on('messageCreate', msg =>{
 
@@ -47,8 +46,8 @@ module.exports = (client) =>{
 
         if(cmdlist.has(command)){
 
-            cmdlist.get(command).run(msg, args, client)
-            NZTK.log(`someone called out ${command}`, "OPBCP", "launcher")
+            cmdlist.get(command).run(msg, args, client, NZTK, user)
+            NZTK.log.normal(`someone called out ${command}`, 2, "launcher")
         }
     })
 }

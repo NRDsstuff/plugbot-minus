@@ -1,11 +1,13 @@
 module.exports = {
 
     name: "userinfo",
-    run: (msg, args, client) =>{
+    run: (msg, args, client, NZTK, usr) =>{
 
       // bot-wide variables or whatever
 
       const Discord = require('discord.js');
+      const PBTKc = require('../../../../../PBTK')
+      const PBTK = new PBTKc("OPBCP", client, usr)
 
       // command-specific variables or whatever
 
@@ -34,6 +36,6 @@ module.exports = {
       .addField(`${config.embedBot}`, `${userinfo.bot}`, true)
       .addField(`${config.embedCreatedAt}`, `${userinfo.userCreatedAt}`, true)
     
-      msg.channel.send({ embeds: [embed] });
+      NZTK.reply(msg, { embeds: [embed] });
     }
 }

@@ -4,6 +4,8 @@ module.exports = {
     usage: "exit",
     run: (client, args, line, user, PBCMD, PBPlugins, PBRL, programs) =>{
 
+        client.destroy()
+
         PBRL.close()
     }
 }

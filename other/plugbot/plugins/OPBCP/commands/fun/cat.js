@@ -1,18 +1,23 @@
 module.exports = {
 
     name: "cat",
-    run: (msg) =>{
+    run: (msg, args, client, NZTK, user) =>{
+
+        const PBTKc = require('../../../../../PBTK')
+        const PBTK = new PBTKc("OPBCP", client, user)
 
         const fetch = require('superagent')
-        const NZTK = require('../../../../../NZTK')
         const Discord = require('discord.js')
 
-        fetch.get("https://some-random-api.ml/img/cat").then(x => {
+        let thej 
 
-            const catEmbed = new Discord.MessageEmbed()
-            .setColor("BLUE")
-            .setImage(x.body.link);
-            msg.channel.send({ embeds: [catEmbed] });
-        }).then(NZTK.log(`sent an image.`, "OPBCP", "cat"))
+        fetch.get("https://some-random-api.ml/img/cat").then(x => {
+            
+            thej = x.body.link
+
+            PBTK.reply(msg, x.body.link);
+
+            NZTK.log.success(`sent an image of a cat\nlink: ${thej}`, 1, "cat")
+        })
     }
 }

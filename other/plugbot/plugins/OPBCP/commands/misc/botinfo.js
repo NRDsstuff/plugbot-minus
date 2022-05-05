@@ -1,7 +1,7 @@
 module.exports = {
     
     name: "botinfo",
-    run: (msg) =>{
+    run: (msg, args, client, NZTK, user) =>{
 
         //bot-wide variables or whatever
 
@@ -10,7 +10,7 @@ module.exports = {
         // functions
 
         const PBTKc = require('../../../../../PBTK')
-        const PBTK = new PBTKc("OPBCP", "/:")
+        const PBTK = new PBTKc("OPBCP", client, user)
 
         //command-specific variables or whatever
 
@@ -18,6 +18,6 @@ module.exports = {
 
         //command itself
 
-        PBTK.replyQuickEmbed(msg, 'who am i?', 'a bot made to make making bots easier \n (by smorter#6942)', config.embedColor)
+        PBTK.replyQuickEmbed(msg, 'who am i?', 'a bot made to make making bots easier \n (by NRD#6942)', config.embedColor)
     }
 }
