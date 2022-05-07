@@ -54,7 +54,7 @@ module.exports = (rl, user) =>{
             if(err) console.log("there was an error while installing this package")
         }))
 
-        NZTK.removedir('./SHELL/temp/NZPM/plugbot')
+        NZTK.removeDir('./SHELL/temp/NZPM/plugbot')
         return NZTK.log("finished installing plugbot", "NZTK", "install")
     })
 }
