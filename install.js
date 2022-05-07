@@ -55,6 +55,6 @@ module.exports = (rl, user) =>{
         }))
 
         NZTK.removeDir('./SHELL/temp/NZPM/plugbot')
-        return NZTK.log("finished installing plugbot", "NZTK", "install")
+        return NZTK.log.success("finished installing plugbot", 1, "install")
     })
 }
