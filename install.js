@@ -4,7 +4,8 @@ module.exports = (rl, user) =>{
 
     const fs = require('fs')
     const shell = require('shelljs')
-    const NZTK = require('../../../other/NZTK')
+    const NZTKc = require('../../../other/NZTK')
+    const NZTK = new NZTKc("NZPM", user)
     let installed = require('../../../configs/NZPM/toupdate.json')
 
     // set up a readline for init config
