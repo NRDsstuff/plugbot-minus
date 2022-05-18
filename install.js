@@ -32,7 +32,7 @@ module.exports = (user, cb) =>{
         NZTK.moveFile("./SHELL/temp/NZPM/plugbot/other/PBTK.js", "./SHELL/other/PBTK.js", "there was an error while moving the PBTK core", true)
         NZTK.moveFile('./SHELL/temp/NZPM/plugbot/other/PBTKModules', './SHELL/other/PBTKModules', "there was an error while moving the PBTK files.", true)
         
-        if(!installed.packages.indexOf("plugbot")) installed.packages.push("plugbot")
+        installed.packages.push("plugbot")
         console.log(installed)
 
         fs.writeFile("./SHELL/configs/NZPM/toupdate.json", JSON.stringify(installed), (err =>{
