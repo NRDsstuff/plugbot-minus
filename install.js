@@ -1,4 +1,4 @@
-module.exports = (rl, user, cb) =>{
+module.exports = (user, cb) =>{
 
     const fs = require('fs')
     const shell = require('shelljs')
@@ -7,8 +7,6 @@ module.exports = (rl, user, cb) =>{
     let installed = require('../../../configs/NZPM/toupdate.json')
 
     // set up a readline for init config
-
-    rl.close()
 
     const PBRLa = require('readline') // the a stands for a
     const PBRL = PBRLa.createInterface({
