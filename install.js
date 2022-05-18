@@ -37,7 +37,7 @@ module.exports = (rl, user, cb) =>{
 
         fs.writeFile("./SHELL/configs/NZPM/toupdate.json", JSON.stringify(installed), (err =>{
 
-            if(err) console.log("there was an error while installing this package")
+            if(err) NZTK.log.error(`could not add plugbot to the installed packages list. you need to add it manually in SHELL/configs/NZPM/toupdate.json\n{"packages": ["plugbot"]}`)
         }))
 
         // node dependencies 
